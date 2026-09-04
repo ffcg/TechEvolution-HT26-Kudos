@@ -1,44 +1,28 @@
 # Domain model
 
-The whole app is one entity. Everything else — the feed, the filters, the
-leaderboard, the reactions — is a view over a list of these.
+Required reading before you write a line of code — see `docs/01-build.md`.
 
-## Kudos
+Living document. When you decide something — especially answers to "Still
+open" below — write it here. An outdated file lies to the next reader and to
+their AI tool.
 
-A Kudos is a short, public, positive message from one colleague to another,
-tagged with a category.
+## The entity
+
+The whole app is one entity. A Kudos is a short, public, positive message
+from one colleague to another, tagged with a category.
 
 | Field | Meaning | Notes |
 | --- | --- | --- |
-| `id` | Unique identifier | Generate it, do not derive it from content |
+| `id` | Unique identifier | Generate it, don't derive it from content |
 | `from` | Who sent it | A colleague id, see `data/colleagues.json` |
 | `to` | Who receives it | A colleague id |
-| `message` | The actual shoutout | Short. Decide a max length and enforce it |
-| `category` | What kind of praise this is | One of a fixed set, see below |
-| `createdAt` | When it was sent | Display string, see below |
-
-Illustrative shape — translate it into whatever your stack uses:
-
-```
-Kudos {
-  id:        string
-  from:      string   // colleague id
-  to:        string   // colleague id
-  message:   string
-  category:  Category
-  createdAt: string   // "2 Sep 14:32"
-}
-```
-
-**On `createdAt`:** store it as the string you want to show on the card. The feed
-is the hottest path in the app and re-formatting a date on every card on every
-render is wasted work. Format once, when the kudos is created, and the feed just
-prints it.
+| `message` | The shoutout | Short — decide a max length and enforce it |
+| `category` | What kind of praise | One of a fixed set, see below |
+| `createdAt` | When it was sent | Store and display however you decide |
 
 ## Categories
 
-Start with these. They are deliberately values-shaped rather than generic —
-swap them for your own team's values if you would rather.
+A closed set, not free text:
 
 - `TEAMWORK` — made the team better, not just the ticket
 - `EXTRA_MILE` — went beyond what anyone asked for
@@ -46,47 +30,44 @@ swap them for your own team's values if you would rather.
 - `CRAFT` — quality of the work itself
 - `CUSTOMER_IMPACT` — the client felt the difference
 
-A category is a closed set, not free text. That matters: it is what makes
-filtering and grouping possible later without string-matching on user input.
-
 ## People
 
-Colleagues are **mock data**, not an entity you manage. There is no sign-up, no
-login and no profile. `data/colleagues.json` holds the list, every team uses the
-same one, and "the current user" is whoever is selected in the UI.
-
-Do not build user management. It is not the exercise, and it will eat your two
-hours.
+Mock data only — `data/colleagues.json`, same list for every team. No
+sign-up, no login, no profile. "The current user" is whoever is selected in
+the UI. Don't build user management.
 
 ## Product rules
 
-These come from the brief. Build them as specified.
+From the brief. Build them as specified.
 
-**Self-kudos are a feature, not a bug.** People — junior colleagues especially —
-under-report their own wins. The wall lets you post a kudos to yourself, and it
-appears in the feed like any other. Do not block it, and do not treat it as a
-special case.
+- **Self-kudos are a feature, not a bug.** People under-report their own
+  wins. Posting a kudos to yourself is allowed, and it appears like any other.
+- **A kudos is immutable once sent.** No editing.
+- **The feed is newest first.** Always.
+- **No limit on how many kudos one person can send.**
 
-**A kudos is immutable once sent.** No editing. Whatever else you build, sending
-is a one-way door.
+## Still open — yours to decide
 
-**The feed is newest first.** Always.
+There's no single right answer to any of these. There is a wrong answer:
+"we never thought about it." Write your answer and reason here as you settle
+each one, or log it under Decisions below.
 
-**No limit on how many kudos one person can send.** Generosity is the point.
-
-## Still open — decide and write your answer down
-
-- Can `message` be empty? Whitespace only? Two thousand characters?
-- What does the feed show when it is empty?
-- Does anything survive a page refresh, or is it gone?
-- If a kudos references a colleague who is no longer in the list, what then?
-
-There is no single right answer to any of these. There is a wrong answer, which
-is "we never thought about it" — because tomorrow morning somebody is going to
-ask you.
+- Can `message` be empty? Whitespace only? Very long?
+- What does the feed show when it's empty?
+- Does anything survive a page refresh — and if so, how?
+- If a kudos references a colleague no longer in the list, what happens?
+- Where does validation live, and is it in one place or several?
+- How do you keep things fast as the feed grows — recompute on every render,
+  or keep a running total somewhere?
 
 ## Deliberately out of scope
 
 Authentication. A backend. A database. Notifications. Editing a sent kudos.
-Comment threads. Rich text. Image uploads. If you find yourself building any of
-these, you have drifted.
+Comment threads. Rich text. Image uploads. If you're building any of these,
+you've drifted.
+
+## Decisions
+
+Short entries as you build — not documentation, just the call and the reason:
+
+- We chose ___ because ___.
