@@ -13,7 +13,13 @@ screen, no backend.
 ```
 git clone <repo-url>
 cd evolution-lab-kudos
+npm install
+npm run dev
 ```
+
+That gets you a blank React + TypeScript app (Vite) with nothing in it. There
+is no domain code, state, or UI beyond a placeholder heading — you and your
+team build the Kudos Wall into `src/` from here.
 
 Read these two before you write anything:
 
@@ -40,5 +46,6 @@ docs/         One file per session — what you're asked to do and how you're as
               conventions.md are pointer files — not required upfront, point
               your AI tool at them when they become relevant.
 data/         Mock data. The colleague list lives here so every team has the same names.
-src/          Your application. Empty on purpose.
+src/          Your application. Minimal React + TypeScript starter only —
+              build the Kudos Wall on top of it.
 ```
