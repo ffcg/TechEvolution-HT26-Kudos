@@ -15,24 +15,10 @@ git clone <repo-url>
 cd evolution-lab-kudos
 ```
 
-This repo is deliberately empty. There is no framework, no build tool and no
-starter code — you and your team decide the stack and scaffold it into `src/`.
-
 Read these two before you write anything:
 
 1. `docs/01-build.md` — what Monday's session asks of you
 2. `.ai/domain-model.md` — what a Kudos actually is
-
-## The schedule
-
-| When | Session | What happens |
-| --- | --- | --- |
-| Monday 14:30–16:30 | **Build** | You and your team build the MVP |
-| Tuesday 10:00–12:00 | **Explain** | You walk another team through your own app and defend the decisions behind it |
-| Tuesday 13:00–14:30 | **Improve** | One new requirement arrives in a sealed envelope. You implement it in your own code |
-
-Last few minutes of Tuesday: everyone sends a real kudos to someone in the
-room, using the app they built. That is the actual demo.
 
 ## Ground rules
 
@@ -45,8 +31,6 @@ room, using the app they built. That is the actual demo.
 - **`.ai/domain-model.md` is the brief.** Treat it like a customer's
   requirements: read it, build what it says, and raise anything you disagree
   with out loud rather than quietly working around it.
-- **Keep the scope small.** One entity. Two hours. Ship something that works
-  over something that is half-finished but clever.
 
 ## Repo layout
 
