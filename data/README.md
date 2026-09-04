@@ -14,7 +14,7 @@ kudos carries a stale copy of it.
 There is no user account model here and there does not need to be one. "The
 current user" is whichever colleague is selected in your UI.
 
-If you build a leaderboard, add a `kudosReceived` number to each colleague and
-keep it up to date as kudos are sent — see `.ai/architecture.md`.
+If you build a leaderboard, decide how to compute it — see the "Still open"
+section in `.ai/domain-model.md`.
 
 Add or edit entries if you like, but keep the shape.
