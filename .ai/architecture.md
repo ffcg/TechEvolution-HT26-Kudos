@@ -25,7 +25,8 @@ the feed reads it.
 
 **Stack is yours.** Any language, any framework, any styling approach, or none.
 The lab is about how you reason and how you hand over, not about which router you
-picked. Scaffold into `src/` and tell the next pair what you chose in the README.
+picked. Scaffold into `src/` and note what you chose in the README — you'll
+want the reminder tomorrow.
 
 **Validation lives in the form.** That is where the user is, that is where the
 error message has to appear, and that is where you already have every field in

@@ -20,9 +20,9 @@ minutes tomorrow morning, not to impose a house style.
 ## Commits
 
 Small, and in the imperative: `add category filter to feed`,
-`show self-kudos in the feed`. The next pair reads your history to understand
-your thinking — a wall of `wip`, `fix`, `asdf` tells them nothing and it will
-show in the Explain session.
+`show self-kudos in the feed`. You'll be walking another team through this
+history tomorrow — a wall of `wip`, `fix`, `asdf` tells them nothing and it
+will show in the Explain session.
 
 Commit whenever something works. Do not save it all for one commit at 16:29.
 

@@ -1,9 +1,19 @@
 # Session 1 — Build
 
-**Monday 14:30–16:30 · in pairs**
+**Monday 14:30–16:30 · in groups of 3–4**
 
 Build a Kudos Wall. Read `.ai/domain-model.md` first — the entity is the whole
 app.
+
+## Before anyone opens an editor (10 min, whole group)
+
+1. Read `.ai/domain-model.md` together, out loud.
+2. Write down at least **3 open questions** it raises (see "Still open" in
+   that file for a start).
+3. Agree an **answer and a one-line reason** for each — goes into
+   `.ai/domain-model.md`'s open-questions section.
+
+Then start.
 
 ## MVP (everyone builds this)
 
@@ -18,9 +28,9 @@ That is it. If both work and you can demo them, you have passed the MVP bar.
 
 ## Extra feature — pick exactly one
 
-Choose one. Not two. **Coordinate with the other pairs so you all pick something
-different** — tomorrow you inherit each other's code, and it is much more
-interesting if it does something yours did not.
+Choose one. Not two. **Coordinate with the other groups so you all pick
+something different** — tomorrow you present to another team, and it is much
+more interesting if your app does something theirs did not.
 
 - **Reactions.** A 👏 counter on each kudos. Clicking adds one. Keep it simple —
   a single number on the kudos, no need to track who clapped. It is applause,
@@ -36,7 +46,7 @@ interesting if it does something yours did not.
 
 The repo is empty by design. Pick your stack, scaffold it into `src/`, and add
 the run instructions to the README. Use `data/colleagues.json` for the colleague
-list — it is the same for every pair, which makes tomorrow's comparisons fair.
+list — it is the same for every group, which makes tomorrow's comparisons fair.
 
 ## Done means
 
@@ -47,6 +57,8 @@ list — it is the same for every pair, which makes tomorrow's comparisons fair.
 - [ ] The README says what stack you chose and how to start it
 - [ ] The product rules in `domain-model.md` are implemented as written
 - [ ] The open questions in `domain-model.md` have answers you can defend
+- [ ] Everyone in the group can explain every feature that's in — not just the
+      person who wrote it
 - [ ] Committed and pushed
 
 ## Two hours goes fast

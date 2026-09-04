@@ -1,7 +1,7 @@
 # .ai — shared context
 
-These files describe the problem, not the solution. They exist so that you, your
-pair, the pair who inherits your repo tomorrow, and every AI tool any of you
+These files describe the problem, not the solution. They exist so that you,
+your team, the team you present to tomorrow, and every AI tool any of you
 point at this codebase all start from the same understanding.
 
 They are plain Markdown on purpose. No tool-specific format, no frontmatter, no
@@ -38,7 +38,7 @@ is written here, change what is written here. An outdated context file is worse
 than no context file, because it lies confidently to the next person and to
 their AI tool.
 
-That applies especially on Tuesday. When you inherit a repo, the first honest
+That applies especially on Tuesday. Before you present, the first honest
 question is: does `.ai/` still describe this code? When you get new requirements
 in the afternoon, updating `.ai/` is part of implementing them, not paperwork
 you do afterwards.

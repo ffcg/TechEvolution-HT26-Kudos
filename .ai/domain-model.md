@@ -52,7 +52,7 @@ filtering and grouping possible later without string-matching on user input.
 ## People
 
 Colleagues are **mock data**, not an entity you manage. There is no sign-up, no
-login and no profile. `data/colleagues.json` holds the list, every pair uses the
+login and no profile. `data/colleagues.json` holds the list, every team uses the
 same one, and "the current user" is whoever is selected in the UI.
 
 Do not build user management. It is not the exercise, and it will eat your two

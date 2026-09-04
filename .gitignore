@@ -38,3 +38,6 @@ coverage/
 .claude/
 .cursor/
 .aider*
+
+# facilitator-only material — never ships in the repo participants clone
+facilitator/

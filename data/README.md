@@ -1,7 +1,7 @@
 # data
 
-Mock data for the lab. Every pair uses the same list, so the apps stay
-comparable when repos swap on Tuesday.
+Mock data for the lab. Every team uses the same list, so the apps stay
+comparable across the room.
 
 ## colleagues.json
 
