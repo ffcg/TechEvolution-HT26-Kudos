@@ -19,9 +19,13 @@ npm install
 npm run dev
 ```
 
-That gets you a blank React + TypeScript app (Vite) with nothing in it. There
-is no domain code, state, or UI beyond a placeholder heading — you and your
-team build the Kudos Wall into `src/` from here.
+That starts the Kudos Wall on http://localhost:5173. The MVP is built: pick
+who you are in the top-right selector, send a kudos (recipient, message,
+category — self-kudos allowed) and it appears at the top of the feed. The
+feed persists in localStorage, so it survives a refresh. Domain code lives
+in `src/kudos/` — types, validation, storage and the store hook, plus the
+form and feed components. Decisions and their reasons are logged in
+`.ai/domain-model.md`.
 
 Read these two before you write anything:
 
