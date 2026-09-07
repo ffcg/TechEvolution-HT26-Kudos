@@ -1,5 +1,5 @@
 import { KudosCard } from './KudosCard'
-import type { Kudos } from './types'
+import type { Kudos } from '../domain/types'
 
 interface KudosFeedProps {
   kudos: Kudos[]

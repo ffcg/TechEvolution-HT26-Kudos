@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
-import { loadKudos, saveKudos } from './storage'
-import { validateKudosMessage } from './validation'
-import type { Kudos, KudosCategory, Result } from './types'
+import { loadKudos, saveKudos } from '../services/storage'
+import { validateKudosMessage } from '../domain/validation'
+import type { Kudos, KudosCategory, Result } from '../domain/types'
 
 export interface NewKudos {
   from: string

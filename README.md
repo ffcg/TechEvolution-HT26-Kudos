@@ -22,10 +22,11 @@ npm run dev
 That starts the Kudos Wall on http://localhost:5173. The MVP is built: pick
 who you are in the top-right selector, send a kudos (recipient, message,
 category — self-kudos allowed) and it appears at the top of the feed. The
-feed persists in localStorage, so it survives a refresh. Domain code lives
-in `src/kudos/` — types, validation, storage and the store hook, plus the
-form and feed components. Decisions and their reasons are logged in
-`.ai/domain-model.md`.
+feed persists in localStorage, so it survives a refresh. The code is
+layered under `src/`: `domain/` (types, validation, labels), `services/`
+(colleague lookup, localStorage), `hooks/` (the kudos store) and
+`components/` (form, feed, card). Decisions and their reasons are logged
+in `.ai/domain-model.md`.
 
 Read these two before you write anything:
 

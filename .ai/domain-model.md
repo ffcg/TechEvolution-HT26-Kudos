@@ -61,7 +61,7 @@ each one, or log it under Decisions below.
 - If a kudos references a colleague no longer in the list, what happens?
   — **The kudos stays**, shown with "Tidigare kollega" as fallback name.
 - Where does validation live, and is it in one place or several?
-  — **One place:** a function in the domain layer (`src/kudos/validation.ts`),
+  — **One place:** a function in the domain layer (`src/domain/validation.ts`),
   used by both the form and the store.
 - How do you keep things fast as the feed grows — recompute on every render,
   or keep a running total somewhere?

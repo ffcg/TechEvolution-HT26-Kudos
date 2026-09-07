@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { colleagues } from './kudos/colleagues'
-import { KudosFeed } from './kudos/KudosFeed'
-import { KudosForm } from './kudos/KudosForm'
-import { useKudos } from './kudos/useKudos'
+import { colleagues } from './services/colleagues'
+import { KudosFeed } from './components/KudosFeed'
+import { KudosForm } from './components/KudosForm'
+import { useKudos } from './hooks/useKudos'
 
 function App() {
   const { kudos, addKudos } = useKudos()

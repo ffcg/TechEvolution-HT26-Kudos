@@ -1,6 +1,6 @@
-import { getColleagueName } from './colleagues'
-import { KUDOS_CATEGORY_LABELS } from './labels'
-import type { Kudos } from './types'
+import { getColleagueName } from '../services/colleagues'
+import { KUDOS_CATEGORY_LABELS } from '../domain/labels'
+import type { Kudos } from '../domain/types'
 
 // Stored as UTC, displayed in the viewer's local time zone.
 const createdAtFormat = new Intl.DateTimeFormat('sv-SE', {

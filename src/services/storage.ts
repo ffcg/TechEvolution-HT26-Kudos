@@ -1,5 +1,5 @@
-import { KudosCategory } from './types'
-import type { Kudos } from './types'
+import { KudosCategory } from '../domain/types'
+import type { Kudos } from '../domain/types'
 
 const STORAGE_KEY = 'kudos-wall.kudos'
 

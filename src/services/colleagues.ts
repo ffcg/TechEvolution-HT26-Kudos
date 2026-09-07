@@ -1,5 +1,5 @@
 import colleaguesData from '../../data/colleagues.json'
-import type { Colleague } from './types'
+import type { Colleague } from '../domain/types'
 
 // Same mock list for every team — see data/README.md.
 export const colleagues: Colleague[] = colleaguesData

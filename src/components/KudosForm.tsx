@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
-import { colleagues } from './colleagues'
-import { KUDOS_CATEGORY_LABELS } from './labels'
-import { KUDOS_MESSAGE_MAX_LENGTH } from './validation'
-import { KudosCategory } from './types'
-import type { NewKudos } from './useKudos'
-import type { Kudos, Result } from './types'
+import { colleagues } from '../services/colleagues'
+import { KUDOS_CATEGORY_LABELS } from '../domain/labels'
+import { KUDOS_MESSAGE_MAX_LENGTH } from '../domain/validation'
+import { KudosCategory } from '../domain/types'
+import type { NewKudos } from '../hooks/useKudos'
+import type { Kudos, Result } from '../domain/types'
 
 interface KudosFormProps {
   currentUserId: string
