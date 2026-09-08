@@ -53,16 +53,17 @@ There's no single right answer to any of these. There is a wrong answer:
 each one, or log it under Decisions below.
 
 - Can `message` be empty? Whitespace only? Very long?
-  — **No.** 1–280 characters, trimmed before validation and storage.
+  — **No.** 1–200 characters, trimmed before validation and storage.
 - What does the feed show when it's empty?
   — **A prompt** encouraging you to post the first kudos to a colleague.
 - Does anything survive a page refresh — and if so, how?
-  — **Yes, via localStorage.** Losing the feed on refresh felt broken.
+  — **Yes, via localStorage** — behind a single storage module, nothing else
+  touches it. Losing the feed on refresh felt broken.
 - If a kudos references a colleague no longer in the list, what happens?
   — **The kudos stays**, shown with "Tidigare kollega" as fallback name.
 - Where does validation live, and is it in one place or several?
-  — **One place:** a function in the domain layer (`src/domain/validation.ts`),
-  used by both the form and the store.
+  — **One place:** a single domain function, used by both the form and the
+  store.
 - How do you keep things fast as the feed grows — recompute on every render,
   or keep a running total somewhere?
   — **Recompute on every render.** At localStorage scale (hundreds of kudos)
@@ -82,7 +83,7 @@ you've drifted.
 
 Short entries as you build — not documentation, just the call and the reason:
 
-- We chose to limit `message` to 1–280 trimmed characters because a kudos is
+- We chose to limit `message` to 1–200 trimmed characters because a kudos is
   a shoutout, not an essay — and an empty or whitespace-only one says nothing.
 - We chose localStorage persistence because losing the feed on refresh felt
   broken.
