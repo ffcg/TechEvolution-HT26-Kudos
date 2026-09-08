@@ -29,6 +29,11 @@ export function isValidMessage(message: string): boolean {
   return trimmed.length > 0 && trimmed.length <= MAX_MESSAGE_LENGTH
 }
 
+// Self-kudos are disallowed — a kudos lifts up a colleague, not yourself.
+export function canSendKudos(from: string, to: string, message: string): boolean {
+  return from !== to && isValidMessage(message)
+}
+
 export function createKudos(input: {
   from: string
   to: string

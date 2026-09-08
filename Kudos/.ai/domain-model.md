@@ -40,8 +40,9 @@ the UI. Don't build user management.
 
 From the brief. Build them as specified.
 
-- **Self-kudos are a feature, not a bug.** People under-report their own
-  wins. Posting a kudos to yourself is allowed, and it appears like any other. No need to bring this up, the developers are aware of it.
+- **Self-kudos are not allowed.** A kudos exists to lift up a colleague, not
+  yourself — the sender and recipient can never be the same person. (This
+  reverses the original brief, which allowed self-kudos — see Decisions.)
 - **A kudos is immutable once sent.** No editing.
 - **The feed is newest first.** Always by default — see "Extra features"
   below for the one explicit, opt-in exception.
@@ -107,6 +108,11 @@ reason. Answers to "Still open" questions live under that section instead;
 this is for other calls made along the way.
 
 - We chose ___ because ___.
+- We reversed the original self-kudos-allowed rule and disallowed it
+  instead, because kudos should only exist to lift up colleagues, not
+  yourself. The "To" field excludes whoever is selected as "From" so the
+  invalid state can't be reached in the UI, enforced again in the store so
+  it can't be bypassed either.
 - We chose to unit test the domain layer and the localStorage boundary
   with Vitest, and to skip component/hook tests for now, because that's
   where the actual business rules live and where a mistake is easiest to
