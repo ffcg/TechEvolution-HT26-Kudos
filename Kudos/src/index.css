@@ -178,6 +178,19 @@ textarea {
   gap: 14px;
 }
 
+.role-heading {
+  margin: 6px 0 -6px;
+}
+
+.role-heading h3 {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-plum);
+}
+
 .kudos-card {
   border: 1px solid var(--color-border);
   border-radius: 14px;

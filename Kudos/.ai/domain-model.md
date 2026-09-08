@@ -96,10 +96,13 @@ Built after the MVP, once it worked end to end. Not required — see
   longest-since-last-kudos first, so colleagues who've never received one
   sort at the very top.
 - **Sort by role.** An opt-in sort control on the feed with two modes:
-  default (newest first, unchanged) and "by role" (grouped by the
-  recipient's role, newest first within each group). This is a deliberate,
-  explicit exception to "the feed is newest first, always" — only in effect
-  while that mode is selected; the default view is unaffected.
+  default (newest first, unchanged) and "by role" (grouped under a heading
+  per recipient role, newest first within each group). This is a
+  deliberate, explicit exception to "the feed is newest first, always" —
+  only in effect while that mode is selected; the default view is
+  unaffected.
+- **Recipient role always visible.** Every kudos in the feed shows the
+  recipient's role next to their name, regardless of sort mode.
 
 ## Decisions
 
