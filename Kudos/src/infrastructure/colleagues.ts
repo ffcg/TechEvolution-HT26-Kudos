@@ -14,3 +14,8 @@ export function resolveColleagueName(id: string): string {
   // was sent — the kudos stays as-is (immutable), the UI falls back instead.
   return colleague ? colleague.name : 'Unknown colleague'
 }
+
+export function resolveColleagueRole(id: string): string {
+  const colleague = colleagues.find((candidate) => candidate.id === id)
+  return colleague ? colleague.role : 'Unknown role'
+}
