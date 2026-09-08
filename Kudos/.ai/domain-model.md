@@ -82,6 +82,18 @@ Authentication. A backend. A database. Notifications. Editing a sent kudos.
 Comment threads. Rich text. Image uploads. If you're building any of these,
 you've drifted.
 
+## Extra features
+
+Built after the MVP, once it worked end to end. Not required — see
+`docs/01-build.md`.
+
+- **"Needs Kudos" section.** A section below the feed listing colleagues
+  who haven't received a kudos in the last 7 days. A colleague who has
+  never received one at all still counts — "never" is just the extreme
+  case of "not in the last 7 days," not a separate category. Ordered
+  longest-since-last-kudos first, so colleagues who've never received one
+  sort at the very top.
+
 ## Decisions
 
 Short entries as you build — not documentation, just the call and the
