@@ -11,9 +11,5 @@ Working agreements for this project, on top of `conventions.md` and
   app.
 - **Never run git commands that change repo state** (commit, push, add,
   etc). Give the exact command instead, and let the person run it.
-- **Keep commits small and scoped to one thing.** Don't mix unrelated
-  changes into the same commit.
 - **Flag new external dependencies before adding them** — even small ones,
   like a font link — so it's a decision, not a surprise.
-- **If something in `domain-model.md` looks wrong or incomplete, say so
-  out loud.** Don't quietly work around it.
