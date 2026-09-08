@@ -1,5 +1,5 @@
 import type { ChangeEvent } from 'react'
-import type { FeedSortMode, RoleOf } from '../domain/feedSort'
+import type { FeedSortMode } from '../domain/feedSort'
 
 interface FeedSortControlProps {
   sortMode: FeedSortMode
@@ -8,15 +8,7 @@ interface FeedSortControlProps {
 
 function FeedSortControl({ sortMode, onChange }: FeedSortControlProps) {
   function handleModeChange(event: ChangeEvent<HTMLSelectElement>) {
-    if (event.target.value === 'newest') {
-      onChange({ kind: 'newest' })
-    } else {
-      onChange({ kind: 'role', roleOf: 'to' })
-    }
-  }
-
-  function handleRoleOfChange(event: ChangeEvent<HTMLSelectElement>) {
-    onChange({ kind: 'role', roleOf: event.target.value as RoleOf })
+    onChange(event.target.value === 'newest' ? { kind: 'newest' } : { kind: 'role' })
   }
 
   return (
@@ -25,19 +17,9 @@ function FeedSortControl({ sortMode, onChange }: FeedSortControlProps) {
         <span className="field-label">Sort by</span>
         <select value={sortMode.kind} onChange={handleModeChange}>
           <option value="newest">Newest</option>
-          <option value="role">Role</option>
+          <option value="role">Recipient's role</option>
         </select>
       </label>
-
-      {sortMode.kind === 'role' && (
-        <label className="field field-inline">
-          <span className="field-label">Role of</span>
-          <select value={sortMode.roleOf} onChange={handleRoleOfChange}>
-            <option value="to">Recipient</option>
-            <option value="from">Sender</option>
-          </select>
-        </label>
-      )}
     </div>
   )
 }

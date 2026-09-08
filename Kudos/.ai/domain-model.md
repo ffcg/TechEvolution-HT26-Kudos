@@ -95,11 +95,10 @@ Built after the MVP, once it worked end to end. Not required — see
   longest-since-last-kudos first, so colleagues who've never received one
   sort at the very top.
 - **Sort by role.** An opt-in sort control on the feed with two modes:
-  default (newest first, unchanged) and "by role" (grouped by role, newest
-  first within each group). Choosing "by role" also lets you pick whose
-  role it groups by — sender or recipient. This is a deliberate, explicit
-  exception to "the feed is newest first, always" — only in effect while
-  that mode is selected; the default view is unaffected.
+  default (newest first, unchanged) and "by role" (grouped by the
+  recipient's role, newest first within each group). This is a deliberate,
+  explicit exception to "the feed is newest first, always" — only in effect
+  while that mode is selected; the default view is unaffected.
 
 ## Decisions
 
