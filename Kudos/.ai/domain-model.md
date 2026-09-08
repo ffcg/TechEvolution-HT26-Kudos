@@ -107,3 +107,7 @@ reason. Answers to "Still open" questions live under that section instead;
 this is for other calls made along the way.
 
 - We chose ___ because ___.
+- We chose to unit test the domain layer and the localStorage boundary
+  with Vitest, and to skip component/hook tests for now, because that's
+  where the actual business rules live and where a mistake is easiest to
+  make invisibly — UI behaviour is cheap to check by hand as we build it.

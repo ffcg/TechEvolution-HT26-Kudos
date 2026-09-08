@@ -18,6 +18,14 @@ Everything else — validation, persistence, performance, folder layout — is
 yours to decide. See "Still open" in `.ai/domain-model.md`; don't expect an
 answer here.
 
+## Why the layers
+
+`domain/` holds plain functions — no React, no `localStorage`, no DOM. That
+is what makes it cheap to unit test: every domain test in `src/domain/`
+runs with no mocking at all. `infrastructure/` is the one place that talks
+to the browser (`localStorage`), so it is the one place a test needs a
+mock. See `conventions.md` → Testing.
+
 ## Given, not decided
 
 - **No backend.** Whatever state management you pick lives entirely on the
