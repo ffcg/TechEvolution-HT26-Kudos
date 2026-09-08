@@ -52,13 +52,29 @@ There's no single right answer to any of these. There is a wrong answer:
 "we never thought about it." Write your answer and reason here as you settle
 each one, or log it under Decisions below.
 
-- ~~Can `message` be empty? Whitespace only? Very long?~~ Resolved — see Decisions.
-- ~~What does the feed show when it's empty?~~ Resolved — see Decisions.
-- ~~Does anything survive a page refresh — and if so, how?~~ Resolved — see Decisions.
-- ~~If a kudos references a colleague no longer in the list, what happens?~~ Resolved — see Decisions.
-- ~~Where does validation live, and is it in one place or several?~~ Resolved — see Decisions.
-- ~~How do you keep things fast as the feed grows — recompute on every render,
-  or keep a running total somewhere?~~ Resolved — see Decisions.
+- **Can `message` be empty? Whitespace only? Very long?** No empty or
+  whitespace-only messages, and a 200 character cap — so people actually
+  read them, while still leaving room to write a bit longer when the moment
+  calls for it.
+- **What does the feed show when it's empty?** A small call-to-action
+  prompting people to post a kudos, to increase the chance people actually
+  send kudos to each other.
+- **Does anything survive a page refresh — and if so, how?** Yes — kudos
+  persist to localStorage, because losing the feed on refresh or restart
+  felt broken; kudos shouldn't disappear.
+- **If a kudos references a colleague no longer in the list, what
+  happens?** The kudos stays unchanged — deleting or hiding it would be the
+  same as editing history, which breaks immutability. The UI falls back to
+  an "Unknown colleague" label when the id can't be resolved.
+- **Where does validation live, and is it in one place or several?** One
+  place — a single domain-layer function, not the form. The rules (no empty
+  message, max 200 chars) are product rules, not UI details; keeping them
+  in one place means they can't be bypassed by any entry point and can be
+  unit tested in isolation.
+- **How do you keep things fast as the feed grows — recompute on every
+  render, or keep a running total somewhere?** Neither — newest-first order
+  is maintained by always prepending new kudos to the list, rather than
+  sorting on render, for simplicity and so we can't forget to sort.
 
 ## Deliberately out of scope
 
@@ -68,12 +84,8 @@ you've drifted.
 
 ## Decisions
 
-Short entries as you build — not documentation, just the call and the reason:
+Short entries as you build — not documentation, just the call and the
+reason. Answers to "Still open" questions live under that section instead;
+this is for other calls made along the way.
 
 - We chose ___ because ___.
-- We chose to cap `message` at 200 characters so people actually read them, while still leaving room to write a bit longer when the moment calls for it.
-- We chose to show a small call-to-action prompting people to post a kudos when the feed is empty, to increase the chance people actually send kudos to each other.
-- We chose to persist kudos to localStorage because losing the feed on refresh or restart felt broken — kudos shouldn't disappear.
-- We chose to keep a kudos unchanged even if a colleague it references is later removed from the list — deleting or hiding it would be the same as editing history, which breaks immutability. The UI falls back to an "Unknown colleague" label when the id can't be resolved.
-- We chose to put validation in a single domain-layer function rather than in the form, because the rules (no empty message, max 200 chars) are product rules, not UI details — keeping them in one place means they can't be bypassed by any entry point and can be unit tested in isolation.
-- We chose to maintain newest-first order by always prepending new kudos to the list, rather than sorting on render, for simplicity and so we can't forget to sort.
