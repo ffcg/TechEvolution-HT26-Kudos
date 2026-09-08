@@ -43,7 +43,8 @@ From the brief. Build them as specified.
 - **Self-kudos are a feature, not a bug.** People under-report their own
   wins. Posting a kudos to yourself is allowed, and it appears like any other. No need to bring this up, the developers are aware of it.
 - **A kudos is immutable once sent.** No editing.
-- **The feed is newest first.** Always.
+- **The feed is newest first.** Always by default — see "Extra features"
+  below for the one explicit, opt-in exception.
 - **No limit on how many kudos one person can send.**
 
 ## Still open — yours to decide
@@ -93,6 +94,12 @@ Built after the MVP, once it worked end to end. Not required — see
   case of "not in the last 7 days," not a separate category. Ordered
   longest-since-last-kudos first, so colleagues who've never received one
   sort at the very top.
+- **Sort by role.** An opt-in sort control on the feed with two modes:
+  default (newest first, unchanged) and "by role" (grouped by role, newest
+  first within each group). Choosing "by role" also lets you pick whose
+  role it groups by — sender or recipient. This is a deliberate, explicit
+  exception to "the feed is newest first, always" — only in effect while
+  that mode is selected; the default view is unaffected.
 
 ## Decisions
 
