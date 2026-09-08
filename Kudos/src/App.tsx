@@ -13,13 +13,18 @@ function App() {
   const [sortMode, setSortMode] = useState<FeedSortMode>(DEFAULT_FEED_SORT_MODE)
 
   return (
-    <main>
-      <h1>Evolution Lab — Kudos Wall</h1>
-      <KudosForm onSend={addKudos} />
-      <FeedSortControl sortMode={sortMode} onChange={setSortMode} />
-      <KudosFeed kudos={kudos} colleagues={colleagues} sortMode={sortMode} />
-      <NeedsKudosSection colleagues={colleagues} kudos={kudos} />
-    </main>
+    <>
+      <header className="app-header">
+        <h1>Kudos Wall</h1>
+        <p>Short, public shoutouts between colleagues.</p>
+      </header>
+      <main className="app-content">
+        <KudosForm onSend={addKudos} />
+        <FeedSortControl sortMode={sortMode} onChange={setSortMode} />
+        <KudosFeed kudos={kudos} colleagues={colleagues} sortMode={sortMode} />
+        <NeedsKudosSection colleagues={colleagues} kudos={kudos} />
+      </main>
+    </>
   )
 }
 

@@ -20,9 +20,9 @@ function FeedSortControl({ sortMode, onChange }: FeedSortControlProps) {
   }
 
   return (
-    <div>
-      <label>
-        Sort by
+    <div className="feed-sort-control">
+      <label className="field field-inline">
+        <span className="field-label">Sort by</span>
         <select value={sortMode.kind} onChange={handleModeChange}>
           <option value="newest">Newest</option>
           <option value="role">Role</option>
@@ -30,8 +30,8 @@ function FeedSortControl({ sortMode, onChange }: FeedSortControlProps) {
       </label>
 
       {sortMode.kind === 'role' && (
-        <label>
-          Role of
+        <label className="field field-inline">
+          <span className="field-label">Role of</span>
           <select value={sortMode.roleOf} onChange={handleRoleOfChange}>
             <option value="to">Recipient</option>
             <option value="from">Sender</option>

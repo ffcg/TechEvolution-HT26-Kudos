@@ -11,13 +11,14 @@ function KudosCard({ kudos }: KudosCardProps) {
   const sentAt = new Date(kudos.createdAt).toLocaleString()
 
   return (
-    <li>
-      <p>
-        <strong>{senderName}</strong> &rarr; <strong>{recipientName}</strong>
+    <li className="kudos-card">
+      <p className="kudos-card-people">
+        <strong>{senderName}</strong> <span aria-hidden="true">&rarr;</span> <strong>{recipientName}</strong>
       </p>
-      <p>{kudos.message}</p>
-      <p>
-        {kudos.category} &middot; {sentAt}
+      <p className="kudos-card-message">{kudos.message}</p>
+      <p className="kudos-card-meta">
+        <span className="category-badge">{kudos.category}</span>
+        <span className="kudos-card-time">{sentAt}</span>
       </p>
     </li>
   )

@@ -11,18 +11,22 @@ function NeedsKudosSection({ colleagues, kudos }: NeedsKudosSectionProps) {
   const statuses = getColleaguesNeedingKudos(colleagues, kudos)
 
   return (
-    <section>
+    <section className="card needs-kudos">
       <h2>Needs Kudos</h2>
       {statuses.length === 0 ? (
-        <p>Everyone has received a kudos in the last {NEEDS_KUDOS_THRESHOLD_DAYS} days.</p>
+        <p className="empty-feed">Everyone has received a kudos in the last {NEEDS_KUDOS_THRESHOLD_DAYS} days.</p>
       ) : (
         <ul>
           {statuses.map(({ colleague, lastReceivedAt, daysSinceLastKudos }) => (
-            <li key={colleague.id}>
-              <strong>{colleague.name}</strong> ({colleague.role}) &mdash;{' '}
-              {lastReceivedAt
-                ? `last kudos ${Math.floor(daysSinceLastKudos)} day${Math.floor(daysSinceLastKudos) === 1 ? '' : 's'} ago`
-                : 'never received a kudos'}
+            <li key={colleague.id} className="needs-kudos-row">
+              <span>
+                <strong>{colleague.name}</strong> <span className="role-tag">{colleague.role}</span>
+              </span>
+              <span className="kudos-card-time">
+                {lastReceivedAt
+                  ? `last kudos ${Math.floor(daysSinceLastKudos)} day${Math.floor(daysSinceLastKudos) === 1 ? '' : 's'} ago`
+                  : 'never received a kudos'}
+              </span>
             </li>
           ))}
         </ul>

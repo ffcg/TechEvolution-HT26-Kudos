@@ -12,18 +12,19 @@ interface KudosFeedProps {
 }
 
 function KudosFeed({ kudos, colleagues, sortMode }: KudosFeedProps) {
-  if (kudos.length === 0) {
-    return <EmptyFeed />
-  }
-
-  const sortedKudos = sortKudosForDisplay(kudos, colleagues, sortMode)
-
   return (
-    <ul>
-      {sortedKudos.map((item) => (
-        <KudosCard key={item.id} kudos={item} />
-      ))}
-    </ul>
+    <section className="card kudos-feed">
+      <h2>Feed</h2>
+      {kudos.length === 0 ? (
+        <EmptyFeed />
+      ) : (
+        <ul>
+          {sortKudosForDisplay(kudos, colleagues, sortMode).map((item) => (
+            <KudosCard key={item.id} kudos={item} />
+          ))}
+        </ul>
+      )}
+    </section>
   )
 }
 

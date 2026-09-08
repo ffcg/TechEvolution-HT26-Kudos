@@ -1,5 +1,5 @@
 function EmptyFeed() {
-  return <p>No kudos yet — be the first to send one!</p>
+  return <p className="empty-feed">No kudos yet — be the first to send one!</p>
 }
 
 export default EmptyFeed

@@ -25,35 +25,36 @@ function KudosForm({ onSend }: KudosFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        From
-        <select value={from} onChange={(event) => setFrom(event.target.value)}>
-          {colleagues.map((colleague) => (
-            <option key={colleague.id} value={colleague.id}>
-              {colleague.name}
-            </option>
-          ))}
-        </select>
-      </label>
+    <form className="card kudos-form" onSubmit={handleSubmit}>
+      <h2>Send a kudos</h2>
 
-      <label>
-        To
-        <select value={to} onChange={(event) => setTo(event.target.value)}>
-          {colleagues.map((colleague) => (
-            <option key={colleague.id} value={colleague.id}>
-              {colleague.name}
-            </option>
-          ))}
-        </select>
-      </label>
+      <div className="field-row">
+        <label className="field">
+          <span className="field-label">From</span>
+          <select value={from} onChange={(event) => setFrom(event.target.value)}>
+            {colleagues.map((colleague) => (
+              <option key={colleague.id} value={colleague.id}>
+                {colleague.name}
+              </option>
+            ))}
+          </select>
+        </label>
 
-      <label>
-        Category
-        <select
-          value={category}
-          onChange={(event) => setCategory(event.target.value as Category)}
-        >
+        <label className="field">
+          <span className="field-label">To</span>
+          <select value={to} onChange={(event) => setTo(event.target.value)}>
+            {colleagues.map((colleague) => (
+              <option key={colleague.id} value={colleague.id}>
+                {colleague.name}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      <label className="field">
+        <span className="field-label">Category</span>
+        <select value={category} onChange={(event) => setCategory(event.target.value as Category)}>
           {CATEGORIES.map((cat) => (
             <option key={cat} value={cat}>
               {cat}
@@ -62,19 +63,20 @@ function KudosForm({ onSend }: KudosFormProps) {
         </select>
       </label>
 
-      <label>
-        Message
+      <label className="field">
+        <span className="field-label">Message</span>
         <textarea
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           maxLength={MAX_MESSAGE_LENGTH}
+          placeholder="Say what they did and why it mattered..."
         />
-        <span>
+        <span className="char-counter">
           {message.length}/{MAX_MESSAGE_LENGTH}
         </span>
       </label>
 
-      <button type="submit" disabled={!canSend}>
+      <button type="submit" className="btn-primary" disabled={!canSend}>
         Send kudos
       </button>
     </form>
