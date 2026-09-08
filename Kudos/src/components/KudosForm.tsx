@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import type { FormEvent } from 'react'
+import type { ChangeEvent, FormEvent } from 'react'
 import { colleagues } from '../infrastructure/colleagues'
-import { CATEGORIES, isValidMessage, MAX_MESSAGE_LENGTH } from '../domain/kudos'
+import { CATEGORIES, canSendKudos, MAX_MESSAGE_LENGTH } from '../domain/kudos'
 import type { Category } from '../domain/kudos'
 
 interface KudosFormProps {
@@ -10,11 +10,23 @@ interface KudosFormProps {
 
 function KudosForm({ onSend }: KudosFormProps) {
   const [from, setFrom] = useState(colleagues[0]?.id ?? '')
-  const [to, setTo] = useState(colleagues[0]?.id ?? '')
+  const [to, setTo] = useState(colleagues[1]?.id ?? colleagues[0]?.id ?? '')
   const [message, setMessage] = useState('')
   const [category, setCategory] = useState<Category>(CATEGORIES[0])
 
-  const canSend = isValidMessage(message)
+  // Self-kudos are disallowed, so "To" never offers whoever is "From".
+  const recipientOptions = colleagues.filter((colleague) => colleague.id !== from)
+  const canSend = canSendKudos(from, to, message)
+
+  function handleFromChange(event: ChangeEvent<HTMLSelectElement>) {
+    const nextFrom = event.target.value
+    setFrom(nextFrom)
+
+    if (nextFrom === to) {
+      const fallback = colleagues.find((colleague) => colleague.id !== nextFrom)
+      if (fallback) setTo(fallback.id)
+    }
+  }
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
@@ -31,7 +43,7 @@ function KudosForm({ onSend }: KudosFormProps) {
       <div className="field-row">
         <label className="field">
           <span className="field-label">From</span>
-          <select value={from} onChange={(event) => setFrom(event.target.value)}>
+          <select value={from} onChange={handleFromChange}>
             {colleagues.map((colleague) => (
               <option key={colleague.id} value={colleague.id}>
                 {colleague.name}
@@ -43,7 +55,7 @@ function KudosForm({ onSend }: KudosFormProps) {
         <label className="field">
           <span className="field-label">To</span>
           <select value={to} onChange={(event) => setTo(event.target.value)}>
-            {colleagues.map((colleague) => (
+            {recipientOptions.map((colleague) => (
               <option key={colleague.id} value={colleague.id}>
                 {colleague.name}
               </option>

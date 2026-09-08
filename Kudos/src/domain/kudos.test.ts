@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { createKudos, isValidMessage, MAX_MESSAGE_LENGTH } from './kudos'
+import { canSendKudos, createKudos, isValidMessage, MAX_MESSAGE_LENGTH } from './kudos'
 
 describe('isValidMessage', () => {
   it('rejects an empty message', () => {
@@ -20,6 +20,20 @@ describe('isValidMessage', () => {
 
   it(`rejects a message longer than ${MAX_MESSAGE_LENGTH} characters`, () => {
     expect(isValidMessage('a'.repeat(MAX_MESSAGE_LENGTH + 1))).toBe(false)
+  })
+})
+
+describe('canSendKudos', () => {
+  it('rejects sending a kudos to yourself', () => {
+    expect(canSendKudos('c01', 'c01', 'nice work')).toBe(false)
+  })
+
+  it('accepts a valid message to a different colleague', () => {
+    expect(canSendKudos('c01', 'c02', 'nice work')).toBe(true)
+  })
+
+  it('rejects an invalid message even between different colleagues', () => {
+    expect(canSendKudos('c01', 'c02', '   ')).toBe(false)
   })
 })
 
