@@ -17,11 +17,11 @@ function NeedsKudosSection({ colleagues, kudos }: NeedsKudosSectionProps) {
         <p>Everyone has received a kudos in the last {NEEDS_KUDOS_THRESHOLD_DAYS} days.</p>
       ) : (
         <ul>
-          {statuses.map(({ colleague, lastReceivedAt }) => (
+          {statuses.map(({ colleague, lastReceivedAt, daysSinceLastKudos }) => (
             <li key={colleague.id}>
               <strong>{colleague.name}</strong> ({colleague.role}) &mdash;{' '}
               {lastReceivedAt
-                ? `last kudos ${new Date(lastReceivedAt).toLocaleDateString()}`
+                ? `last kudos ${Math.floor(daysSinceLastKudos)} day${Math.floor(daysSinceLastKudos) === 1 ? '' : 's'} ago`
                 : 'never received a kudos'}
             </li>
           ))}
