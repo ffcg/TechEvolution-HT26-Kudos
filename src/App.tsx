@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import { colleagues } from './services/colleagues'
+import { colleagues } from './utils/colleagues'
 import { KudosFeed } from './components/KudosFeed'
 import { KudosForm } from './components/KudosForm'
 import { useKudos } from './hooks/useKudos'
 
 function App() {
   const { kudos, addKudos } = useKudos()
-  // No auth on purpose — "the current user" is whoever is selected here,
-  // see .ai/domain-model.md.
+  // no auth on purpose — "the current user" is whoever is selected here
   const [currentUserId, setCurrentUserId] = useState(colleagues[0].id)
 
   return (

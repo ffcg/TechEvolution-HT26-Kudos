@@ -14,7 +14,14 @@ export interface Kudos {
   to: string
   message: string
   category: KudosCategory
-  createdAt: string // ISO 8601, UTC
+  createdAt: string
+}
+
+export interface NewKudos {
+  from: string
+  to: string
+  message: string
+  category: KudosCategory
 }
 
 export interface Colleague {
@@ -23,6 +30,6 @@ export interface Colleague {
   role: string
 }
 
-export type Result<T, E extends Error = Error> =
+export type Result<T> =
   | { ok: true; value: T }
-  | { ok: false; error: E }
+  | { ok: false; error: Error }

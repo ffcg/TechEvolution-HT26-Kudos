@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import type { FormEvent } from 'react'
-import { colleagues } from '../services/colleagues'
-import { KUDOS_CATEGORY_LABELS } from '../domain/labels'
-import { KUDOS_MESSAGE_MAX_LENGTH } from '../domain/validation'
-import { KudosCategory } from '../domain/types'
-import type { NewKudos } from '../hooks/useKudos'
-import type { Kudos, Result } from '../domain/types'
+import type { SubmitEvent } from 'react'
+import { colleagues } from '../utils/colleagues'
+import { KUDOS_CATEGORY_LABELS, KUDOS_MESSAGE_MAX_LENGTH } from '../constants'
+import { KudosCategory } from '../types'
+import type { Kudos, NewKudos, Result } from '../types'
 
 interface KudosFormProps {
   currentUserId: string
@@ -20,12 +18,8 @@ export const KudosForm = ({ currentUserId, onSend }: KudosFormProps) => {
   )
   const [error, setError] = useState('')
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (!to) {
-      setError('Välj en mottagare.')
-      return
-    }
 
     const result = onSend({ from: currentUserId, to, message, category })
     if (!result.ok) {
