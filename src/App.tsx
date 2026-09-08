@@ -1,5 +1,36 @@
+import { useState } from 'react'
+import { colleagues } from './utils/colleagues'
+import { KudosFeed } from './components/KudosFeed'
+import { KudosForm } from './components/KudosForm'
+import { useKudos } from './hooks/useKudos'
+
 function App() {
-  return <h1>Evolution Lab — Kudos Wall</h1>
+  const { kudos, addKudos } = useKudos()
+  // no auth on purpose — "the current user" is whoever is selected here
+  const [currentUserId, setCurrentUserId] = useState(colleagues[0].id)
+
+  return (
+    <main className="app">
+      <header className="app-header">
+        <h1>Kudos Wall</h1>
+        <label className="current-user">
+          Du är
+          <select
+            value={currentUserId}
+            onChange={(event) => setCurrentUserId(event.target.value)}
+          >
+            {colleagues.map((colleague) => (
+              <option key={colleague.id} value={colleague.id}>
+                {colleague.name}
+              </option>
+            ))}
+          </select>
+        </label>
+      </header>
+      <KudosForm currentUserId={currentUserId} onSend={addKudos} />
+      <KudosFeed kudos={kudos} />
+    </main>
+  )
 }
 
 export default App

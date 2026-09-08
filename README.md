@@ -19,9 +19,28 @@ npm install
 npm run dev
 ```
 
-That gets you a blank React + TypeScript app (Vite) with nothing in it. There
-is no domain code, state, or UI beyond a placeholder heading — you and your
-team build the Kudos Wall into `src/` from here.
+That starts the Kudos Wall on http://localhost:5173. The MVP is built: pick
+who you are in the top-right selector, send a kudos (recipient, message,
+category — self-kudos allowed) and it appears at the top of the feed. The
+feed persists in localStorage, so it survives a refresh. Run the tests with
+`npm test`. Decisions and their reasons are logged in `.ai/domain-model.md`.
+
+## Project structure
+
+```
+src/
+├─ components/
+├─ hooks/
+├─ utils/
+├─ types.ts
+├─ constants.ts
+└─ App.tsx
+```
+
+Data flow: component → kudos store hook → utils (validation, persistence).
+Tests live in `__tests__/` folders next to the code they cover.
+Conventions live in `.ai/conventions.md`, decisions and their reasons in
+`.ai/domain-model.md`.
 
 Read these two before you write anything:
 
@@ -48,6 +67,5 @@ docs/         One file per session — what you're asked to do and how you're as
               conventions.md are pointer files — not required upfront, point
               your AI tool at them when they become relevant.
 data/         Mock data. The colleague list lives here so every team has the same names.
-src/          Your application. Minimal React + TypeScript starter only —
-              build the Kudos Wall on top of it.
+src/          The Kudos Wall application — see "Project structure" above.
 ```

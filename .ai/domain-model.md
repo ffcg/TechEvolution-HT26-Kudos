@@ -53,12 +53,25 @@ There's no single right answer to any of these. There is a wrong answer:
 each one, or log it under Decisions below.
 
 - Can `message` be empty? Whitespace only? Very long?
+  — **No.** 1–200 characters, trimmed before validation and storage.
 - What does the feed show when it's empty?
+  — **A prompt** encouraging you to post the first kudos to a colleague.
 - Does anything survive a page refresh — and if so, how?
+  — **Yes, via localStorage** — behind a single storage module, nothing else
+  touches it. Losing the feed on refresh felt broken.
 - If a kudos references a colleague no longer in the list, what happens?
+  — **The kudos stays**, shown with "Tidigare kollega" as fallback name.
 - Where does validation live, and is it in one place or several?
+  — **One place:** a single domain function, used by both the form and the
+  store.
 - How do you keep things fast as the feed grows — recompute on every render,
   or keep a running total somewhere?
+  — **Recompute on every render.** At localStorage scale (hundreds of kudos)
+  a running total is premature optimization and a second copy of the truth
+  that can drift. The store keeps the list newest-first at insert, so the
+  feed never sorts per render. If derived data ever gets noticeable
+  (e.g. a leaderboard), `useMemo` over the list — still derived, no
+  architecture change.
 
 ## Deliberately out of scope
 
@@ -70,4 +83,14 @@ you've drifted.
 
 Short entries as you build — not documentation, just the call and the reason:
 
-- We chose ___ because ___.
+- We chose to limit `message` to 1–200 trimmed characters because a kudos is
+  a shoutout, not an essay — and an empty or whitespace-only one says nothing.
+- We chose localStorage persistence because losing the feed on refresh felt
+  broken.
+- We chose to keep kudos for removed colleagues (fallback name "Tidigare
+  kollega") because kudos are immutable — the feed should not change just
+  because the mock list did.
+- We chose a Swedish UI (labels, error messages) while code, comments and
+  domain vocabulary stay English, per .ai/conventions.md.
+- We chose to put validation in one domain-layer function used by both the
+  form and the store, so the rule cannot be bypassed and lives in one place.
