@@ -19,9 +19,26 @@ npm install
 npm run dev
 ```
 
-That gets you a blank React + TypeScript app (Vite) with nothing in it. There
-is no domain code, state, or UI beyond a placeholder heading — you and your
-team build the Kudos Wall into `src/` from here.
+Open the local URL printed by Vite. To verify a production build, run:
+
+```
+npm run build
+```
+
+## Using the Kudos Wall
+
+Select the current colleague under **Sending as**, then choose a recipient,
+category and message. Messages must contain 1–200 characters. Self-kudos are
+allowed.
+
+The feed supports newest-first and oldest-first date sorting, followed by
+pagination in groups of ten. The recognition section lists current colleagues
+who have never received kudos or have not received one in the last seven days.
+Use **Edit** on a kudos to correct its recipient, category or message. Saving
+keeps its original sender and timestamp; cancelling leaves it unchanged.
+
+Kudos are stored only in the browser's `localStorage`. Clear site data for the
+development origin to reset the wall.
 
 Read these two before you write anything:
 
