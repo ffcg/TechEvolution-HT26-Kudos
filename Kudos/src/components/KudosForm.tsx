@@ -69,6 +69,9 @@ function KudosForm({ onSend }: KudosFormProps) {
           onChange={(event) => setMessage(event.target.value)}
           maxLength={MAX_MESSAGE_LENGTH}
         />
+        <span>
+          {message.length}/{MAX_MESSAGE_LENGTH}
+        </span>
       </label>
 
       <button type="submit" disabled={!canSend}>
